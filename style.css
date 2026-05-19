@@ -1,0 +1,338 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #071120;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, #5ee2f4, transparent 40%),
+    radial-gradient(circle at bottom right, #5ee2f4, transparent 40%),
+    linear-gradient(135deg, #3cbdecde, #2cb7e9de);
+  z-index: -1;
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+}
+
+.logo img {
+  width: 130px;
+  height: 150px;
+  object-fit: contain;
+}
+
+header h1 {
+  color: #ff0000;
+  -webkit-text-stroke: 0.5px #fff;
+  letter-spacing: 1px;
+  font-size: 17px;
+}
+
+header h2, header h3, header h4 {
+  color: #ffee00;
+  -webkit-text-stroke: 0.4px #fff;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+/* Loader & Toast */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #071120;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 70px;
+  height: 70px;
+  border: 6px solid rgba(255,255,255,.2);
+  border-top: 6px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #22c55e;
+  color: white;
+  padding: 16px 20px;
+  border-radius: 14px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: .4s;
+  z-index: 999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === BỐ CỤC CHÍNH === */
+.attendance {
+  width: min(1100px, 92%);
+  margin: auto;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Card chung */
+.stat-card,
+.form-box,
+.progress-box,
+.comment-box {
+  background: rgba(255,255,255,.08);
+  border-radius: 28px;
+  padding: 28px;
+  backdrop-filter: blur(20px);
+}
+
+/* Phần 1: Thống kê chia làm 3 cột */
+.stats-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 20px;
+}
+
+.stat-card h3 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+/* Phần 2: Tìm kiếm & Nút Điểm Danh */
+.form-box h2 {
+  margin-bottom: 16px;
+}
+
+.search-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-box input {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 18px;
+  background: #fff;
+  font-size: 16px;
+  color: #000;
+  outline: none;
+}
+
+/* Danh sách Dropdown thả xuống khi tìm kiếm */
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(15, 25, 40, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  margin-top: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+  list-style: none;
+  z-index: 100;
+  display: none; /* Mặc định ẩn */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.dropdown-list li {
+  padding: 14px 18px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.2s;
+}
+
+.dropdown-list li:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffee00;
+}
+
+.dropdown-list li:last-child {
+  border-bottom: none;
+}
+
+.selection-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.selection-card p {
+  opacity: .75;
+  margin-bottom: 8px;
+}
+
+#selectedName {
+  color: #ffee00;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.highlight-none {
+  color: rgba(255,255,255,.7) !important;
+  font-weight: 500;
+}
+
+#btnDiemDanh {
+  width: 100%;
+  border: none;
+  padding: 16px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: white;
+}
+
+#btnDiemDanh:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+/* Phần 3: Tiến độ */
+.progress-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.progress-heading span {
+  font-weight: 700;
+  color: #ffee00;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 18px;
+  background: rgba(255,255,255,.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#progressFill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  transition: 1s;
+}
+
+/* Phần 4: Danh sách đại biểu */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toggle-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.toggle-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.list-container {
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+#delegateList {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+#delegateList li {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+#delegateList li:hover {
+  background: rgba(255,255,255,.12);
+}
+
+#delegateList li.attended {
+  color: #22c55e;
+  cursor: default;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  pointer-events: none;
+}
+
+#delegateList li.attended::after {
+  content: "✓ Đã điểm danh";
+  color: #22c55e;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Điện thoại di động */
+@media (max-width: 768px) {
+  .stats-box {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card h3 {
+    font-size: 32px;
+  }
+
+  .progress-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
