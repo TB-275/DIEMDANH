@@ -29,7 +29,7 @@ const COLLECTION_NAME = "diemdanh";
 // 2. DATA ĐẠI BIỂU
 let danhSachDaiBieu = [
     "Nguyễn Bá Duân", "Trương Thị Ngọc Phương", "Nguyễn Thanh Phong", "Nguyễn Thanh Hiền", "Vũ Thanh Nguyên", 
-      "Trà Hoàng Sơn", "Nguyễn Đăng Hòa", "Ating Toàn", "Bùi Anh Đức", "Châu Ngọc Cường", 
+      "Trần Phương Nam", "Nguyễn Đăng Hòa", "Ating Toàn", "Bùi Anh Đức", "Châu Ngọc Cường", 
       "Nguyễn Thị Thanh Long", "Lê Thị Kim Ngọc", "Phạm Thị Thùy Quyên", "Phan Đức Thắng", "Dương Quang Hậu", 
       "Nguyễn Văn Quang", "Trần Tường Vi", "Võ Duy Rin", "Trịnh Thị Hoài Thương", "Trần Quốc Duy", 
       "Nguyễn Thị Ngọc Bích", "Nguyễn Lê Hoài Thanh", "Nguyễn Thanh Thảo Nguyên", "Trần Thị Triều Giang", "Lê Bá Phương", 
@@ -68,17 +68,14 @@ let danhSachDaiBieu = [
                 "Bùi Thị Thùy Dương","Nguyễn Hoàng Đạt","Trần Thị Lệ Chi","Ngô Văn Thảo Nguyên","Đặng Anh Đào","Lê Minh Dũng","Cao Nam Hải","Đào Hồng Phú Mỹ",
                 "Tống Duy Quốc","Ngô Thị Hoàng Vân","Trần Như Quỳnh","Nguyễn Hoàng Khánh Đoan","Hồ Thị Mỹ Hà","Phạm Văn Mãi","Đặng Ngọc Nhung",
                 "Lương Lê Ngọc Sương","Lê Thế Vĩnh","Trương Anh Tài","Hồ Hồng Quang Hào","A Râl Vượng","Trần Thị Hoài Linh",
-                "Trần Xuân Vĩ","Đỗ Lê Hưng Toàn","Nguyễn Khoa Vỹ","Nguyễn Trọng Nghĩa","Nguyễn Thị Kim Trinh","Nguyễn Thị Hạnh Nguyên","Nguyễn Quốc Khánh","Đinh Quang Lĩnh",
-              "Võ Thị Như Ngọc", "Trần Vĩnh Tiến","Trịnh Ngọc Tấn","Nguyễn Viết Hùng","Lê Thị Kim Dung","Nguyễn Thị Yến Nhi",
-              "Nguyễn Khoa Điềm","Lê Đình Lượng","Phan Tú Anh","Phan Thị Hoàng Lê","Nguyễn Đức Tài","Cao Anh Tuấn","Đặng Minh Vương","Nguyễn Vinh Huy",
-              "Nguyễn Đăng Khoa","Nguyễn Hữu Anh Dũng","Hồng Thị Kim Uyên","Nguyễn Thị Hoàng Vy","Trần Thị Xuân Hương","Trần Thị Thanh Hằng","Nguyễn Hoàng Việt Danh","Huỳnh Lê Triều Vỹ",
-              "Võ Văn Nhi","Hoàng Anh Cảm","Nguyễn Hoàng Nam","Đoàn Thị Anh Thư ","Nguyễn Thị Mơ","Nguyễn Thanh Hiếu","Nguyễn Trí Thành","Đỗ Lê Văn Thuấn","Huỳnh Đức",
-              "Lê Văn Hiệp","Đỗ Hồng Quang","Nguyễn Văn Điệp","Trần Văn Thơ","Nguyễn Khắc Tuấn ","Nguyễn Anh Tuấn","Hà Phước Thái",
-              "Hồ Đình Trí","Phạm Quang Mẫn ","Võ Văn Thành","Phạm Phú Dũng","Nguyễn Văn Hoàng","Đinh Hữu Công","Nguyễn Văn Sơn",
-              "Phùng Nhật Tuyên","Nguyễn Ngọc Tâm","Lê Thị Lành","Dương Đình Cường","Trương Thanh Tịnh","Nguyễn Đức Hải","Nguyễn Thi Mây","Hồ Thanh Tâm",
-              "Lê Long Khánh","Võ Thị Thanh Minh","Đặng Thị Vân","Trịnh Hồng Minh", "Gia Hân", "Bùi Thị Triều","Trương Công Nhàn","Đặng Tuấn Việt","Hồ Thị Hoàng Châu"
-];
-
+                "Trần Xuân Vĩ","Đỗ Lê Hưng Toàn ","Nguyễn Khoa Vỹ","Nguyễn Trọng Nghĩa","Bùi Thị Triều","Nguyễn Thị Hạnh Nguyên","Nguyễn Quốc Khánh","Đinh Quang Lĩnh",
+"Võ Thị Như Ngọc","Trần Vĩnh Tiến","Trịnh Ngọc Tấn","Nguyễn Viết Hùng","Lê Thị Kim Dung","Nguyễn Thị Yến Nhi","Nguyễn Khoa Điềm","Lê Đình Lượng",
+"Phan Tú Anh","Phan Thị Hoàng Lê","Nguyễn Đức Tài","Cao Anh Tuấn","Đặng Minh Vương","Nguyễn Vinh Huy","Nguyễn Đăng Khoa","Nguyễn Hữu Anh Dũng","Hồng Thị Kim Uyên","Nguyễn Thị Hoàng Vy",
+"Trần Thị Xuân Hương","Trần Thị Thanh Hằng","Nguyễn Hoàng Việt Danh","Huỳnh Lê Triều Vỹ","Võ Văn Nhi","Hoàng Anh Cảm","Nguyễn Hoàng Nam","Đoàn Thị Anh Thư ","Nguyễn Thị Mơ",
+"Nguyễn Thanh Hiếu","Nguyễn Trí Thành","Đỗ Lê Văn Thuấn","Huỳnh Đức","Lê Văn Hiệp","Đỗ Hồng Quang","Nguyễn Văn Điệp","Trần Văn Thơ","Nguyễn Khắc Tuấn ","Nguyễn Anh Tuấn","Hà Phước Thái",
+"Hồ Đình Trí","Phạm Quang Mẫn ","Võ Văn Thành","Phạm Phú Dũng","Nguyễn Văn Hoàng","Đinh Hữu Công","Nguyễn Văn Sơn","Phùng Nhật Tuyên","Nguyễn Ngọc Tâm","Lê Thị Lành","Dương Đình Cường ","Trương Thanh Tịnh ",
+"Nguyễn Đức Hải","Nguyễn Thi Mây","Hồ Thanh Tâm","Lê Long Khánh","Võ Thị Thanh Minh","Đặng Thị Vân","Trịnh Nguyễn Hồng Minh ","Phạm Thị Kim Thoa ","Nguyễn Đình Khâm Thuận","Trương Công Nhàn ","Nguyễn Thị Thanh Phúc","Hồ Thị Hoàng Châu "
+]
 // Lọc trùng lặp và khoảng trắng
 danhSachDaiBieu = [...new Set(danhSachDaiBieu.map(name => name.trim()).filter(Boolean))];
 
